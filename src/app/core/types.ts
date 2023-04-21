@@ -19,3 +19,9 @@ export interface Statistic {
   specialDefense: number,
   speed: number
 };
+
+export interface DisplayCard {
+  title: string,
+  subtitle?: string,
+  description?: string
+};
