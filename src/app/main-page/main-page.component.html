@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-toolbar color="primary" class="toolbar">
+    <img src="../../assets/monster_ball.png" alt="monster-ball">
+    <span>Pokémon Battle Center</span>
+    <span class="toolbar-space"></span>
+    <mat-form-field class="toolbar-query-field">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput type="text" [(ngModel)]="queryCondition">
+      <mat-icon *ngIf="queryCondition" matSuffix mat-icon-button aria-label="Clear" (click)="queryCondition=''">close</mat-icon>
+    </mat-form-field>
+  </mat-toolbar>
+  <div class="content">
+    <div class="content-menu">
+      <mat-list role="list">
+        <button 
+          mat-list-item 
+          *ngFor="let menu of menuList" 
+          [value]="menu" 
+          (click)="switch(menu.router)"
+          [class]="currentRouter === menu.router? 'menu-active' : ''"
+        >
+          <mat-icon>{{menu.icon}}</mat-icon>
+          {{menu.title}}
+        </button>
+      </mat-list>
+      <div></div>
+    </div>
+    <div class="content-router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

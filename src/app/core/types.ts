@@ -25,3 +25,9 @@ export interface DisplayCard {
   subtitle?: string,
   description?: string
 };
+
+export interface MenuList {
+  title: string,
+  icon: string,
+  router: string
+};
